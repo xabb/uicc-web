@@ -77,10 +77,9 @@ def validate_program_form(form_data):
     elif len(opc) != 32 or not is_hex(opc):
         errors.append("L'OPc ha de tenir exactament 32 caràcters hexadecimals.")
 
-    if spn == "":
-        errors.append("L'SPN és obligatori.")
-    elif len(spn) != 11:
-        errors.append("L'SPN ha de tenir exactament 11 caràcters en aquest perfil de laboratori.")
+    if spn != "":
+        if len(spn) > 16:
+            errors.append("L'SPN no hauria de superar els 16 caràcters.")
 
     if authenticate != "on":
         errors.append("L'opció --authenticate ha d'estar activada.")

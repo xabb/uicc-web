@@ -1,3 +1,4 @@
+import shlex
 import subprocess
 
 
@@ -115,8 +116,8 @@ def build_program_command(form_data, uicc_bin, uicc_port):
     return {
         "real_command_list": command,
         "safe_command_list": safe_command,
-        "real_command": " ".join(command),
-        "safe_command": " ".join(safe_command),
+        "real_command": shlex.join(command),
+        "safe_command": shlex.join(safe_command),
     }
 
 
