@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+    <h2>Programador UICC/SIM</h2>
+
+    <div class="status-box">
+        {% if simulate %}
+            <p><strong>Mode actual:</strong> SIMULACIÓ</p>
+        {% else %}
+            <p><strong>Mode actual:</strong> REAL</p>
+        {% endif %}
+
+        <p><strong>Binari:</strong> {{ uicc_bin }}</p>
+        <p><strong>Port:</strong> {{ uicc_port }}</p>
+    </div>
+
+    <form action="/mode" method="post" class="mode-form">
+        <h3>Configuració</h3>
+
+        <p>
+            <label>Binari</label>
+            <input type="text" name="uicc_bin" value="{{ uicc_bin }}">
+        </p>
+
+        <p>
+            <label>Port</label>
+            <input type="text" name="uicc_port" value="{{ uicc_port }}">
+        </p>
+
+        <p>
+            <label class="checkbox-label">
+                <input type="checkbox" name="simulate"
+                       {% if simulate %}checked{% endif %}>
+                Mode simulació
+            </label>
+        </p>
+
+        <button class="button" type="submit">Desa configuració</button>
+    </form>
+
+    <p class="actions">
+        <a class="button" href="/read">Llegir targeta</a>
+        <a class="button" href="/program">Programar targeta</a>
+    </p>
+</section>
+{% endblock %}

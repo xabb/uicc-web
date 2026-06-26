@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+    <h2>Resultat de lectura</h2>
+
+    {% if result.ok %}
+        <p class="ok"><strong>Estat:</strong> correcte</p>
+    {% else %}
+        <p class="error"><strong>Estat:</strong> error</p>
+    {% endif %}
+
+    <h3>Comanda</h3>
+    <pre>{{ result.command }}</pre>
+
+    <h3>Sortida</h3>
+    <pre>{{ result.stdout }}</pre>
+
+    {% if result.stderr %}
+        <h3>Errors</h3>
+        <pre class="errorbox">{{ result.stderr }}</pre>
+    {% endif %}
+
+    <p>
+        <a class="button" href="/">Torna</a>
+    </p>
+</section>
+{% endblock %}
