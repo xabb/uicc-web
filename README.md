@@ -7,14 +7,14 @@ L'aplicació web no inclou el binari `program_uicc`: només el crida des de Pyth
 
 https://open-cells.com/index.php/uiccsim-programing/
 
-### 1. Clonar el projecte
+### Clonar el projecte
 
 ```bash
 git clone https://github.com/xabb/uicc-web.git
 cd uicc-web
 ```
 
-### 2. Crear l'entorn virtual de Python
+### Crear l'entorn virtual de Python
 
 ```bash
 python3 -m venv .venv
@@ -34,14 +34,14 @@ La ruta hauria d'apuntar a alguna cosa semblant a:
 /home/usuari/uicc-web/.venv/bin/python
 ```
 
-### 3. Instal·lar dependències
+### Instal·lar dependències
 
 ```bash
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-### 4. Comprovar el binari `program_uicc`
+### Comprovar el binari `program_uicc`
 
 L'aplicació està preparada per trobar l'executable en aquesta ruta per defecte:
 
@@ -78,7 +78,7 @@ which program_uicc
 program_uicc --help
 ```
 
-### 5. Configuració del port sèrie
+### Configuració del port sèrie
 
 Per defecte, l'aplicació està pensada per treballar amb un lector sèrie exposat com:
 
@@ -98,7 +98,7 @@ Si el lector apareix amb un altre nom, per exemple `/dev/ttyUSB1`, cal canviar l
 export UICC_PORT=/dev/ttyUSB1
 ```
 
-### 6. Permisos del port sèrie
+### Permisos del port sèrie
 
 Si el dispositiu és `/dev/ttyUSB0`, l'usuari pot necessitar pertànyer al grup `dialout`:
 
@@ -115,7 +115,7 @@ groups
 ls -l /dev/ttyUSB0
 ```
 
-### 7. Evitar interferències de ModemManager
+### Evitar interferències de ModemManager
 
 Alguns lectors USB-sèrie poden ser capturats per `ModemManager`.
 
@@ -132,7 +132,7 @@ sudo fuser -v /dev/ttyUSB0
 sudo lsof /dev/ttyUSB0
 ```
 
-### 8. Arrencar l'aplicació
+### Arrencar l'aplicació
 
 Des de la carpeta del projecte:
 
@@ -147,7 +147,7 @@ Obrir el navegador a:
 http://127.0.0.1:5000
 ```
 
-### 9. Configuració per defecte
+### Configuració per defecte
 
 La configuració per defecte de l'aplicació és:
 
@@ -168,7 +168,7 @@ export UICC_PORT=/dev/ttyUSB0
 python app.py
 ```
 
-### 10. Mode simulació
+### Mode simulació
 
 Per provar el web sense lector ni targeta:
 
@@ -185,7 +185,7 @@ En mode simulació:
 
 També es pot canviar entre mode real i mode simulació des de la pantalla inicial del web.
 
-### 11. Prova recomanada abans d'utilitzar el web
+### Prova recomanada abans d'utilitzar el web
 
 Abans de dependre de la interfície web, és recomanable comprovar que el binari funciona directament:
 
@@ -195,7 +195,7 @@ sudo /usr/local/bin/program_uicc --port /dev/ttyUSB0
 
 Si aquesta ordre no funciona, el web tampoc podrà comunicar-se correctament amb la targeta.
 
-### 12. Com troba `app.py` l'executable
+### Com troba `app.py` l'executable
 
 L'aplicació no busca el binari automàticament per tot el sistema. La ruta ve definida per la configuració.
 
