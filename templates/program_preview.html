@@ -8,12 +8,10 @@
         Revisa bé la comanda abans d'executar-la.
     </p>
 
-    <h3>Comanda segura</h3>
-    <pre>{{ preview.safe_command }}</pre>
+    <h3>Comanda real</h3>
+    <pre>{{ preview.real_command }}</pre>
 
-    <p>
-        Els valors sensibles com ADM, Ki, OP i OPc s'han amagat.
-    </p>
+
 
     <form action="/program/execute" method="post">
         {% for field, value in form_data.items() %}
